@@ -55,4 +55,4 @@ TO BE ADDED
 
 ## 📬 Contact
 
-Ricardo Campos — ricardo.campos@ubi.pt
+Ricardo Campos — ricardo.campos at ubi.pt
