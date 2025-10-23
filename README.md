@@ -227,7 +227,9 @@ This dataset was developed by **[INESC TEC – Institute for Systems and Compute
 
 ### Acknowledgements
 
-Adicionar projetos e bolsas
+This work was carried out as part of the project *Accelerat.AI* (Ref. C644865762-00000008), financed by IAPMEI and the European Union — Next Generation EU Fund, within the scope of call for proposals no. 02/C05-i01/2022 — submission of final proposals for project development under the Mobilizing Agendas for Business Innovation of the Recovery and Resilience Plan.
+Ricardo Campos, Alípio Jorge, and Nuno Guimarães also acknowledge support from the *StorySense* project (Ref. 2022.09312.PTDC, DOI: [10.54499/2022.09312.PTDC](https://doi.org/10.54499/2022.09312.PTDC)).
+
 
 ---
 
