@@ -176,7 +176,7 @@ Instruções Gerais:
 Analise cada frase individualmente dentro de citações diretas.
 Numa mesma citação podem existir claims e non-claims; classifique cada frase separadamente."
 ```
-```
+
 
 
 ---
