@@ -52,9 +52,9 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
 | `text_segment` | Text segment corresponding to the annotated span |
 | `claim_topic` | Topic of the news article (e.g., politics, environment, health) |
 | `claim_span` | Object containing `text`, `begin`, and `end` positions of the claim span |
-| `claim_object` | Text and character offsets of the claim’s object (if applicable) |
+| `claim_object` | Text and character offsets of the claim’s object  |
 | `claimer` | Text and offsets of the entity making the claim |
-| `Time` | Temporal expression associated with the claim (if annotated) |
+| `Time` | Temporal expression associated with the claim |
 
 ---
 
@@ -221,12 +221,13 @@ This dataset was developed by **[INESC TEC – Institute for Systems and Compute
 
 ### Affiliated Institutions
 
-* [University of Beira Interior (UBI)](https://www.ubi.pt/en/)
-* [University of Porto (UP)](https://www.up.pt/portal/en/)
+* [University of Beira Interior](https://www.ubi.pt/en/)
+* [University of Porto ](https://www.up.pt/portal/en/)
+* [University of Lisbon](https://www.ulisboa.pt/en)
 
 ### Acknowledgements
 
-*To be completed with funding and grant numbers.*
+Adicionar projetos e bolsas
 
 ---
 
