@@ -242,4 +242,3 @@ For support, questions, or collaboration inquiries:
 For bug reports or feature requests:
 👉 Open an issue at the [GitHub repository](https://github.com/LIAAD/ClaimPT/issues)
 
-```
