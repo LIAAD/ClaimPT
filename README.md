@@ -186,6 +186,8 @@ Numa mesma citação podem existir claims e non-claims; classifique cada frase s
 ### Results
 
 
+The encoder-based models outperform the generative Gemini baselines. 
+
 | **Model** | **Label** | **Precision (%)** | **Recall (%)** | **F1 (%)** |
 |------------|------------|-------------------|----------------|-------------|
 | **Gemini Flash Lite (Generative)** | Claim | 0.00 | 0.00 | 0.00 |
@@ -201,7 +203,6 @@ Numa mesma citação podem existir claims e non-claims; classifique cada frase s
 | | Non-Claim | 63.35 | 76.42 | 69.27 |
 | | Micro Avg | 61.88 | 71.59 | 66.38 |
 
-The encoder-based models outperform the generative Gemini baselines.  
 Gemini-2.5-Flash-Lite achieved near-zero performance, while Gemini-2.5-Flash showed marginal improvement.  
 Among encoder baselines, **BERT with sentence segmentation** performed best, reaching **F1 = 30.57** for claims and **F1 = 69.27** for non-claims.
 
