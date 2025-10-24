@@ -17,7 +17,9 @@ We introduce **ClaimPT**, a dataset of European Portuguese news articles annotat
 │
 ├── generative_baselines/ 
 │ ├── generative_baseline.ipynb
-|
+├── bert_baselines/ 
+│ ├── bert-finetune.ipynb
+| ├── evaluate.py
 ├── LICENSE
 └── README.md
 
