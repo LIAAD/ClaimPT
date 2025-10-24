@@ -2,7 +2,7 @@
 # ClaimPT: A Portuguese Dataset of Annotated Claims in News Articles
 
 ##  Overview
-We introduce **ClaimPT**, a dataset of European Portuguese news articles annotated for **factual claims**, comprising **1,308 articles** and **6,875 individual annotations**. Unlike most existing resources based on social media or parliamentary transcripts, ClaimPT focuses on journalistic content, collected through a partnership with **LUSA, the Portuguese News Agency**. To ensure annotation quality, two trained annotators labeled each article, with a curator validating all annotations according to a newly proposed scheme. We also provide **baseline models** for claim detection, establishing initial benchmarks and enabling future NLP and IR applications. By releasing ClaimPT, we aim to advance research on low-resource **fact-checking** and enhance understanding of misinformation in news media.
+We introduce **ClaimPT**, a dataset of European Portuguese news articles annotated for **factual claims**, comprising **1,308 articles** and **6,875 individual annotations**. Unlike most existing resources based on social media or parliamentary transcripts, ClaimPT focuses on journalistic content, collected through a partnership with **LUSA, the Portuguese News Agency**. To ensure annotation quality, two trained annotators labeled each article, with a curator validating all annotations according to a newly proposed scheme. We also provide **baseline models for claim detection**, establishing initial benchmarks and enabling future NLP and IR applications. By releasing ClaimPT, we aim to advance research on low-resource fact-checking and enhance understanding of misinformation in news media.
 
 
 ## Repository Structure
@@ -142,19 +142,24 @@ The dataset is divided into **train** and **test** subsets, maintaining the same
 Claim detection is modeled as a **span classification task**:
 Given a text *t*, the model predicts a set of triples *(b, e, c)*, where *b* and *e* indicate the start and end of a span, and *c ∈ {Claim, Non-Claim}* denotes the class.
 
-#### Encoder-based Model
+### Encoder-based Model
 
-* **Model:** BERTimbau (Portuguese BERT)
-* **Approach:** Fine-tuned for token classification
-* **Model link:** N/A
+- **Model:** BERTimbau (Portuguese BERT)  
+- **Approach:** Fine-tuned for token classification  
 
-#### Generative LLM-based Model
 
-* **Model:** Gemini 2.5 Pro
-* **Method:** Few-shot structured extraction
-* **Prompt used:**
+To handle the 512-token input limit, two input strategies were used:
+1. **Sentence-level segmentation** — each sentence processed independently (preserves sentence boundaries). [HuggingFace model repository](https://huggingface.co/lfcc/bert-claimpt-sent)
+2. **Chunking with overlap (stride)** — 512-token chunks with 128-token overlap to retain cross-boundary context.  [HuggingFace model repository](https://huggingface.co/lfcc/bert-claimpt-chunk)
+
+### Generative LLM-based Model
+
+- **Models:** Gemini-2.5-Flash-Lite  & Gemini-2.5-Flash
+- **Method:** Few-shot structured extraction  
+- **Prompt used:**
 
 ```
+
 "Identifique claims (alegações factuais) e non-claims no texto, de acordo com as seguintes regras:
 Claim:
 Definição: Uma claim é uma afirmação factual, verificável e de interesse público, expressa em discurso direto (entre aspas), atribuída a alguém que não seja o jornalista.
@@ -175,9 +180,30 @@ Exclusão: frases narrativas do jornalista ou sem sentido completo.
 Instruções Gerais:
 Analise cada frase individualmente dentro de citações diretas.
 Numa mesma citação podem existir claims e non-claims; classifique cada frase separadamente."
+
 ```
 
+### Results
 
+
+| **Model** | **Label** | **Precision (%)** | **Recall (%)** | **F1 (%)** |
+|------------|------------|-------------------|----------------|-------------|
+| **Gemini Flash Lite (Generative)** | Claim | 0.00 | 0.00 | 0.00 |
+| | Non-Claim | 0.48 | 0.34 | 0.40 |
+| | Micro Avg | 0.09 | 0.31 | 0.14 |
+| **Gemini 2.5 (Generative)** | Claim | 0.12 | 1.08 | 0.21 |
+| | Non-Claim | 0.16 | 0.34 | 0.22 |
+| | Micro Avg | 0.15 | 0.41 | 0.22 |
+| **BERT-Chunk** | Claim | 40.38 | 22.58 | 28.97 |
+| | Non-Claim | 55.96 | 68.71 | 61.68 |
+| | Micro Avg | 55.24 | 64.31 | 59.43 |
+| **BERT-Sent** | Claim | 37.50 | 25.81 | 30.57 |
+| | Non-Claim | 63.35 | 76.42 | 69.27 |
+| | Micro Avg | 61.88 | 71.59 | 66.38 |
+
+The encoder-based models outperform the generative Gemini baselines.  
+Gemini-2.5-Flash-Lite achieved near-zero performance, while Gemini-2.5-Flash showed marginal improvement.  
+Among encoder baselines, **BERT with sentence segmentation** performed best, reaching **F1 = 30.57** for claims and **F1 = 69.27** for non-claims.
 
 ---
 
