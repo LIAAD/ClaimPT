@@ -4,6 +4,7 @@
 ##  Overview
 We introduce **ClaimPT**, a dataset of European Portuguese news articles annotated for **factual claims**, comprising **1,308 articles** and **6,875 individual annotations**. Unlike most existing resources based on social media or parliamentary transcripts, ClaimPT focuses on journalistic content, collected through a partnership with **LUSA, the Portuguese News Agency**. To ensure annotation quality, two trained annotators labeled each article, with a curator validating all annotations according to a newly proposed scheme. We also provide **baseline models for claim detection**, establishing initial benchmarks and enabling future NLP and IR applications. By releasing ClaimPT, we aim to advance research on low-resource fact-checking and enhance understanding of misinformation in news media.
 
+<img src="claimpt.png">
 
 ## Repository Structure
 ``` 
