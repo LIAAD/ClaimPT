@@ -1,5 +1,5 @@
 
-# ClaimPT: A Portuguese Dataset of Annotated Claims in News Articles
+
 <img src="claimpt.png">
 
 ##  Overview
