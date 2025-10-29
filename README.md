@@ -38,6 +38,29 @@ We introduce **ClaimPT**, a dataset of European Portuguese news articles annotat
 | **Total Non-Claims** | 4,393 |
 
 
+## Corpus Statistics
+
+| **Property**                                      | **Description**                                                                        |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Total Documents**                               | 1,308                                                                                  |
+| **Fully Annotated Documents (Claim + Non-Claim)** | 1,090                                                                                  |
+| **Documents with Both Claim and Non-Claim**       | 273 (≈ 25%) out of the 1,9090                                                                            |
+| **Documents with Only Non-Claim**                 | 817 (≈ 75%) out of the 1,9090                                                                                      |
+| **Average Document Length**                       | 542.8 words                                                                            |
+| **Claim Annotations**                             | 463                                                                                    |
+| **Non-Claim Annotations**                         | 4,393                                                                                  |
+| **Claimer Entities**                              | 670                                                                                    |
+| **– of which Person**                             | 563                                                                                    |
+| **– of which Organization**                       | 66                                                                                     |
+| **– Other Claimer Types**                         | 41                                                                                     |
+| **Stance Annotations**                            | 463                                                                                    |
+| **– Affirm**                                      | 446                                                                                    |
+| **– Refute**                                      | 17                                                                                     |
+| **Claim Spans**                                   | 523                                                                                    |
+| **Claim Objects**                                 | 551                                                                                    |
+| **News Article Topics**                           | 1,308 (1 per document)                                                                 |
+| **Publication Times**                             | 1,308 (1 per document)                                                                 |
+
 
 
 ---
