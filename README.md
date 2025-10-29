@@ -34,9 +34,9 @@ We introduce **ClaimPT**, a dataset of European Portuguese news articles annotat
 | **Property**                                      | **Description**                                                                        |
 | ------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | **Total Documents**                               | 1,308                                                                                  |
-| **Fully Annotated Documents (Claim + Non-Claim)** | 1,090                                                                                  |
-| **Documents with Both Claim and Non-Claim**       | 273 (≈ 25%) out of the 1,9090                                                                            |
-| **Documents with Only Non-Claim**                 | 817 (≈ 75%) out of the 1,9090                                                                                      |
+| **Annotated Documents (with at least one Claim or Non-Claim)** | 1,090                                                                                  |
+| **Documents with Both Claim and Non-Claim**       | 273 (≈ 25%) out of the 1,090                                                                            |
+| **Documents containing only Non-Claim annotations**                 | 817 (≈ 75%) out of the 1,090                                                                                      |
 | **Average Document Length**                       | 542.8 words                                                                            |
 | **Claim Annotations**                             | 463                                                                                    |
 | **Non-Claim Annotations**                         | 4,393                                                                                  |
