@@ -33,26 +33,26 @@ We introduce **ClaimPT**, a dataset of European Portuguese news articles annotat
 
 ## Corpus Statistics
 
-| **Category**                      | **Property**                                                   | **Description**                    |
-| --------------------------------- | -------------------------------------------------------------- | ---------------------------------- |
-| 🗂️ **Corpus Overview**           | **Total Documents**                                            | 1,308                              |
-|                                   | **Average Document Length**                                    | 542.8 words                        |
-|                                   | **Annotated Documents (with at least one Claim or Non-Claim)** | 1,090                              |
-|                                   | **Documents with Both Claim and Non-Claim**                    | 273 (≈ 25% of annotated documents) |
-|                                   | **Documents containing only Non-Claim annotations**            | 817 (≈ 75% of annotated documents) |
-| ✍️ **Annotation Counts**          | **Claim Annotations**                                          | 463                                |
-|                                   | **Non-Claim Annotations**                                      | 4,393                              |
-| 👤 **Claimer Entities**           | **Total Claimer Entities**                                     | 670                                |
-|                                   | – Person                                                       | 563                                |
-|                                   | – Organization                                                 | 66                                 |
-|                                   | – Other Types                                                  | 41                                 |
-| ⚖️ **Stance Annotations**         | **Total Stance Annotations**                                   | 463                                |
-|                                   | – Affirm                                                       | 446                                |
-|                                   | – Refute                                                       | 17                                 |
-| 💬 **Claim Structure**            | **Claim Spans**                                                | 523                                |
-|                                   | **Claim Objects**                                              | 551                                |
-| 📰 **Document-Level Annotations** | **News Article Topics**                                        | 1,308 (1 per document)             |
-|                                   | **Publication Times**                                          | 1,308 (1 per document)             |
+| **Property**                                                   | **Description**                    |
+| -------------------------------------------------------------- | ---------------------------------- |
+| **Total Documents**                                            | 1,308                              |
+| **Average Document Length**                                    | 542.8 words                        |
+| **Annotated Documents (with at least one Claim or Non-Claim)** | 1,090                              |
+| **Documents with Both Claim and Non-Claim**                    | 273 (≈ 25% of annotated documents) |
+| **Documents containing only Non-Claim annotations**            | 817 (≈ 75% of annotated documents) |
+| **Claim Annotations**                                          | 463                                |
+| **Non-Claim Annotations**                                      | 4,393                              |
+| **Total Claimer Entities**                                     | 670                                |
+| – Person                                                       | 563                                |
+| – Organization                                                 | 66                                 |
+| – Other Types                                                  | 41                                 |
+| **Total Stance Annotations**                                   | 463                                |
+| – Affirm                                                       | 446                                |
+| – Refute                                                       | 17                                 |
+| **Claim Spans**                                                | 523                                |
+| **Claim Objects**                                              | 551                                |
+| **News Article Topics**                                        | 1,308 (1 per document)             |
+| **Publication Times**                                          | 1,308 (1 per document)             |
 
 ---
 
