@@ -109,7 +109,7 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
           "begin": 438,
           "end": 452
         },
-        "time": "",
+        "time": "hoje",
         "id": "news_0008_c1"
       }
     ]
