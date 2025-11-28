@@ -64,6 +64,7 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
 | Field | Description |
 |--------|-------------|
 | `document` | News article filename |
+| `news_article_topic` | Topic of the news article |
 | `publication_time` | Date of the news publication |
 | `claim` | Boolean indicating whether the annotation is a claim (`true`) or non-claim (`false`) |
 | `begin_character` | Begin character offset of the annotated text span |
@@ -73,7 +74,8 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
 | `claim_span` | Object containing `text`, `begin`, and `end` positions of the claim span |
 | `claim_object` | Text and character offsets of the claim’s object  |
 | `claimer` | Text and offsets of the entity making the claim |
-| `Time` | Temporal expression associated with the claim |
+| `time` | Temporal expression associated with the claim |
+| `id` | Unique identifier for each claim or non-claim |
 
 ---
 
@@ -82,30 +84,36 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
 ```json
 [
   {
-    "document": "input_part008.txt",
+    "document": "news_0008.txt",
+    "news_article_topic": "science and environment",
     "publication_time": "04 dez 2023",
-    "claim": true,
-    "begin_character": 501,
-    "end_character": 685,
-    "text_segment": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
-    "claim_topic": "politics",
-    "claim_span": {
-      "text": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
-      "begin": 501,
-      "end": 685
-    },
-    "claim_object": {
-      "text": "por se empenhar, acima de tudo, na defesa do ambiente",
-      "begin": 594,
-      "end": 647
-    },
-    "claimer": {
-      "text": "Pinto Balsemão",
-      "begin": 438,
-      "end": 452
-    },
-    "Time": ""
-  }
+    "items": [
+      {
+        "claim": true,
+        "begin_character": 501,
+        "end_character": 685,
+        "text_segment": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
+        "claim_topic": "politics",
+        "claim_span": {
+          "text": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
+          "begin": 501,
+          "end": 685
+        },
+        "claim_object": {
+          "text": "por se empenhar, acima de tudo, na defesa do ambiente",
+          "begin": 594,
+          "end": 647
+        },
+        "claimer": {
+          "text": "Pinto Balsemão",
+          "begin": 438,
+          "end": 452
+        },
+        "time": "",
+        "id": "news_0008_c1"
+      }
+    ]
+  },
 ]
 ````
 
