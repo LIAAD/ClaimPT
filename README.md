@@ -209,7 +209,32 @@ Analise cada frase individualmente dentro de citações diretas.
 Numa mesma citação podem existir claims e non-claims; classifique cada frase separadamente."
 
 ```
+- **Prompt Translated**
 
+```
+Identify claims (factual statements) and non-claims in the text, according to the following rules:
+
+Claim:
+Definition: A claim is a factual, verifiable statement of public interest, expressed in direct speech (within quotation marks), attributed to someone other than the journalist.
+Text segment: Extract only complete declarative sentences with standalone meaning, without including quotation marks or a period.
+Inclusion criteria:
+Claims usually appear linked to reporting verbs (to state, emphasize, mention, said, explained).
+Each claim must be extracted individually, even if it appears within the same quotation.
+Exclusion criteria:
+Do not extract incomplete or meaningless sentences.
+Do not extract informative statements, common-sense statements, or statements without public relevance.
+Do not extract statements about future possibilities or hypotheses.
+Non-Claim:
+Definition: Subjective sentences (opinions, beliefs, personal judgments), speculative statements, or references to future events that cannot be verified.
+Rules:
+Must be complete declarative sentences in direct speech (within quotation marks).
+Do not include quotation marks or a period.
+Exclusion: Narrative sentences by the journalist or sentences without complete meaning.
+General Instructions:
+Analyze each sentence individually within direct quotations.
+Within the same quotation, there may be claims and non-claims; classify each sentence separately.
+
+```
 ### Results
 
 
