@@ -1,8 +1,10 @@
 
-# ClaimPT: A Portuguese Dataset of Annotated Claims in News Articles
+
+<img src="claimpt.png">
 
 ##  Overview
 We introduce **ClaimPT**, a dataset of European Portuguese news articles annotated for **factual claims**, comprising **1,308 articles** and **6,875 individual annotations**. Unlike most existing resources based on social media or parliamentary transcripts, ClaimPT focuses on journalistic content, collected through a partnership with **LUSA, the Portuguese News Agency**. To ensure annotation quality, two trained annotators labeled each article, with a curator validating all annotations according to a newly proposed scheme. We also provide **baseline models for claim detection**, establishing initial benchmarks and enabling future NLP and IR applications. By releasing ClaimPT, we aim to advance research on low-resource fact-checking and enhance understanding of misinformation in news media.
+
 
 
 ## Repository Structure
@@ -26,19 +28,34 @@ We introduce **ClaimPT**, a dataset of European Portuguese news articles annotat
 ```
 ---
 
+
+
+
 ## Corpus Statistics
 
-| Property | Description |
-|-----------|--------------|
-| **Total Documents** | 1,308 |
-| **Average Length** | 542.8 words per document |
-| **Total Claims** | 463 |
-| **Total Non-Claims** | 4,393 |
-
-
-
+| **Property**                                                   | **Description**                    |
+| -------------------------------------------------------------- | ---------------------------------- |
+| **Total Documents**                                            | 1,308                              |
+| **Average Document Length**                                    | 542.8 words                        |
+| **Annotated Documents (with at least one Claim or Non-Claim)** | 1,090                              |
+| **Documents with Both Claim and Non-Claim**                    | 273 (≈ 25% of annotated documents) |
+| **Documents containing only Non-Claim annotations**            | 817 (≈ 75% of annotated documents) |
+| **Claim Annotations**                                          | 463                                |
+| **Non-Claim Annotations**                                      | 4,393                              |
+| **Total Claimer Entities**                                     | 670                                |
+| – Person                                                       | 563                                |
+| – Organization                                                 | 66                                 |
+| – Other Types                                                  | 41                                 |
+| **Total Stance Annotations**                                   | 463                                |
+| – Affirm                                                       | 446                                |
+| – Refute                                                       | 17                                 |
+| **Claim Spans**                                                | 523                                |
+| **Claim Objects**                                              | 551                                |
+| **News Article Topics**                                        | 1,308 (1 per document)             |
+| **Publication Times**                                          | 1,308 (1 per document)             |
 
 ---
+
 
 ## Data Format
 
@@ -47,6 +64,7 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
 | Field | Description |
 |--------|-------------|
 | `document` | News article filename |
+| `news_article_topic` | Topic of the news article |
 | `publication_time` | Date of the news publication |
 | `claim` | Boolean indicating whether the annotation is a claim (`true`) or non-claim (`false`) |
 | `begin_character` | Begin character offset of the annotated text span |
@@ -56,7 +74,8 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
 | `claim_span` | Object containing `text`, `begin`, and `end` positions of the claim span |
 | `claim_object` | Text and character offsets of the claim’s object  |
 | `claimer` | Text and offsets of the entity making the claim |
-| `Time` | Temporal expression associated with the claim |
+| `time` | Temporal expression associated with the claim |
+| `id` | Unique identifier for each claim or non-claim |
 
 ---
 
@@ -65,30 +84,36 @@ The **ClaimPT** dataset is provided in **JSONL** format, where each line corresp
 ```json
 [
   {
-    "document": "input_part008.txt",
+    "document": "news_0008.txt",
+    "news_article_topic": "science and environment",
     "publication_time": "04 dez 2023",
-    "claim": true,
-    "begin_character": 501,
-    "end_character": 685,
-    "text_segment": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
-    "claim_topic": "politics",
-    "claim_span": {
-      "text": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
-      "begin": 501,
-      "end": 685
-    },
-    "claim_object": {
-      "text": "por se empenhar, acima de tudo, na defesa do ambiente",
-      "begin": 594,
-      "end": 647
-    },
-    "claimer": {
-      "text": "Pinto Balsemão",
-      "begin": 438,
-      "end": 452
-    },
-    "Time": ""
-  }
+    "items": [
+      {
+        "claim": true,
+        "begin_character": 501,
+        "end_character": 685,
+        "text_segment": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
+        "claim_topic": "politics",
+        "claim_span": {
+          "text": "foi convidado para aderir não pelo lado monárquico, no qual, aliás, não insistiam muito, mas por se empenhar, acima de tudo, na defesa do ambiente e na preservação da qualidade de vida",
+          "begin": 501,
+          "end": 685
+        },
+        "claim_object": {
+          "text": "por se empenhar, acima de tudo, na defesa do ambiente",
+          "begin": 594,
+          "end": 647
+        },
+        "claimer": {
+          "text": "Pinto Balsemão",
+          "begin": 438,
+          "end": 452
+        },
+        "time": "hoje",
+        "id": "news_0008_c1"
+      }
+    ]
+  },
 ]
 ````
 
@@ -184,7 +209,32 @@ Analise cada frase individualmente dentro de citações diretas.
 Numa mesma citação podem existir claims e non-claims; classifique cada frase separadamente."
 
 ```
+- **Prompt Translated**
 
+```
+Identify claims (factual statements) and non-claims in the text, according to the following rules:
+
+Claim:
+Definition: A claim is a factual, verifiable statement of public interest, expressed in direct speech (within quotation marks), attributed to someone other than the journalist.
+Text segment: Extract only complete declarative sentences with standalone meaning, without including quotation marks or a period.
+Inclusion criteria:
+Claims usually appear linked to reporting verbs (to state, emphasize, mention, said, explained).
+Each claim must be extracted individually, even if it appears within the same quotation.
+Exclusion criteria:
+Do not extract incomplete or meaningless sentences.
+Do not extract informative statements, common-sense statements, or statements without public relevance.
+Do not extract statements about future possibilities or hypotheses.
+Non-Claim:
+Definition: Subjective sentences (opinions, beliefs, personal judgments), speculative statements, or references to future events that cannot be verified.
+Rules:
+Must be complete declarative sentences in direct speech (within quotation marks).
+Do not include quotation marks or a period.
+Exclusion: Narrative sentences by the journalist or sentences without complete meaning.
+General Instructions:
+Analyze each sentence individually within direct quotations.
+Within the same quotation, there may be claims and non-claims; classify each sentence separately.
+
+```
 ### Results
 
 
