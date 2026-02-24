@@ -147,7 +147,7 @@ A sample subset (20 annotated articles) is included in the repository under the 
 
 The complete dataset (1,308 articles) is protected by a **Data Use Agreement** and will be made available through the following DOI once the research paper is published:
 
-🔗 **[https://rdm.inesctec.pt/dataset/cs-2025-008](https://rdm.inesctec.pt/dataset/cs-2025-008)**
+🔗 **[https://doi.org/10.25747/JY10-E413](https://doi.org/10.25747/JY10-E413)**
 
 Please visit the DOI link for access details and usage terms.
 
@@ -287,8 +287,21 @@ If you use this dataset, please cite:
   author       = {Ricardo Campos and Raquel Sequeira and Sara Nerea and Inês Cantante and Diogo Folques and Luís Filipe Cunha and João Canavilhas and António Branco and Alípio Jorge and Sérgio Nunes and Nuno Guimarães and Purificação Silvano},
   title        = {ClaimPT: A Portuguese Dataset of Annotated Claims in News Articles},
   year         = {2025},
-  doi          = {https://rdm.inesctec.pt/dataset/cs-2025-008},
+  doi          = {https://doi.org/10.25747/JY10-E413},
   institution  = {INESC TEC}
+}
+```
+The associated publication is available on [arXiv](https://arxiv.org/abs/2601.19490) and is currently in the process of being published. 
+
+```bibtex
+@misc{campos2026claimptportuguesedatasetannotated,
+      title={ClaimPT: A Portuguese Dataset of Annotated Claims in News Articles}, 
+      author={Ricardo Campos and Raquel Sequeira and Sara Nerea and Inês Cantante and Diogo Folques and Luís Filipe Cunha and João Canavilhas and António Branco and Alípio Jorge and Sérgio Nunes and Nuno Guimarães and Purificação Silvano},
+      year={2026},
+      eprint={2601.19490},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2601.19490}, 
 }
 ```
 
@@ -296,21 +309,21 @@ If you use this dataset, please cite:
 
 ## Credits and Acknowledgements
 
+
 This dataset was developed by **[INESC TEC – Institute for Systems and Computer Engineering, Technology and Science](https://www.inesctec.pt)**, specifically by the **[NLP Group](https://nlp.inesctec.pt/)** within the **[LIAAD – Laboratory of Artificial Intelligence and Decision Support](https://www.inesctec.pt/pt/centros/LIAAD)** research center.
 
 ### Affiliated Institutions
 
-* [University of Beira Interior](https://www.ubi.pt/en/)
-* [University of Porto ](https://www.up.pt/portal/en/)
-* [University of Lisbon](https://www.ulisboa.pt/en)
-
-### Acknowledgements
+  - [University of Beira Interior](https://www.ubi.pt/en/)
+  - [University of Porto ](https://www.up.pt/portal/en/)
+  - [University of Lisbon](https://www.ulisboa.pt/en)
 
 This work was carried out as part of the project *Accelerat.AI* (Ref. C644865762-00000008), financed by IAPMEI and the European Union — Next Generation EU Fund, within the scope of call for proposals no. 02/C05-i01/2022 — submission of final proposals for project development under the Mobilizing Agendas for Business Innovation of the Recovery and Resilience Plan.
 Ricardo Campos, Alípio Jorge, and Nuno Guimarães also acknowledge support from the *StorySense* project (Ref. 2022.09312.PTDC, DOI: [10.54499/2022.09312.PTDC](https://doi.org/10.54499/2022.09312.PTDC)). 
 Luís Filipe Cunha thanks the Fundação para a Ciência e Tecnologia (FCT), Portugal for the Ph.D. Grant (2024.042 02.BD).
 João Canavilhas would also like to acknowledge project Obiajor, with reference 2023.18007.ICDT. 
 The authors would also like to thank the Portuguese News Agency (LUSA) for granting access to the 1,308 news articles. 
+
 ---
 
 ## Contact
